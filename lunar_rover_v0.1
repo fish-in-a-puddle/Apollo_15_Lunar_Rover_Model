@@ -1,0 +1,47 @@
+#include <Servo.h>
+Servo recvDish;
+int m1p = 2;
+int m1m = 3;
+int m2p = 4;
+int m2m = 5;
+int headlight1 = 6;
+int headlight2 = 7;
+
+
+void setup() {
+	recvDish.attach(9);
+	pinMode(m1p, OUTPUT);
+	pinMode(m1m, OUTPUT);
+	pinMode(m2p, OUTPUT);
+	pinMode(m2m, OUTPUT);
+	pinMode(headlight1, OUTPUT);
+	pinMode(headlight2, OUTPUT);
+}
+
+void loop() {
+	int lightValue = analogRead(A0);
+	if (lightValue > 450) {     
+		digitalWrite(headlight1, LOW);
+		digitalWrite(headlight2, LOW);
+	} 
+	else {       
+		digitalWrite(headlight1,  HIGH); 
+		digitalWrite(headlight2, HIGH);
+	}
+	digitalWrite(m1p, HIGH);
+	digitalWrite(m1m, LOW);
+	digitalWrite(m2p, HIGH);
+	digitalWrite(m2m, LOW);
+	recvDish.write(180);
+	delay(200);
+	recvDish.write(0);
+	delay(400);
+	digitalWrite(m1p, LOW);
+	digitalWrite(m2p, LOW);
+	recvDish.write(90);
+	delay(500);
+	digitalWrite(m1m, HIGH);
+	digitalWrite(m2m, HIGH);
+	delay(400);
+}
+	
