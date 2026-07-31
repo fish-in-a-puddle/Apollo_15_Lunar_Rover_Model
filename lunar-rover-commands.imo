@@ -1,0 +1,85 @@
+// Necessary libraries: Servo
+#include <Servo.h>
+
+const int motorrp = 11;
+const int motorrn = 10;
+const int motorlp = 13;
+const int motorln = 12;
+const int trig = 5;
+const int echo = 6;
+const int ledr = 7;
+const int ledl = 8;
+
+Servo sweepServo;
+
+void setup() {
+    pinMode(motorrp, OUTPUT);
+    pinMode(motorrn, OUTPUT);
+    pinMode(motorlp, OUTPUT);
+    pinMode(motorln, OUTPUT);
+    pinMode(ledr, OUTPUT);
+    pinMode(ledl, OUTPUT);
+    sweepServo.attach(9);
+    sweepServo.write(90);
+    
+}
+
+void goForward() {
+    digitalWrite(motorrp, HIGH);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, HIGH);
+    digitalWrite(motorln, LOW);
+}
+
+void goBackward() {
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, HIGH);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, HIGH);
+}
+
+void turnRight() {
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, HIGH);
+    digitalWrite(motorln, LOW);
+}
+
+void turnRightBackwards() {
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, HIGH);
+}
+
+void turnLeft() {
+    digitalWrite(motorrp, HIGH);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, LOW);
+}
+
+void turnLeftBackwards() {
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, HIGH);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, LOW);
+}
+
+void stop() {
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, LOW);
+}
+
+void loop() {
+    goForward();
+    delay(2000);
+    turnRight();
+    delay(2000);
+    goForward();
+    delay(2000);
+    stop();
+    delay(20000)
+}
