@@ -21,7 +21,20 @@ void setup() {
     pinMode(ledl, OUTPUT);
     sweepServo.attach(9);
     sweepServo.write(90);
-    
+    digitalWrite(motorrp, HIGH);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, HIGH);
+    digitalWrite(motorln, LOW);
+    delay(500);
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, HIGH);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, HIGH);
+    delay(500);
+    digitalWrite(motorrp, LOW);
+    digitalWrite(motorrn, LOW);
+    digitalWrite(motorlp, LOW);
+    digitalWrite(motorln, LOW);
 }
 
 void goForward() {
@@ -77,9 +90,9 @@ void loop() {
     goForward();
     delay(2000);
     turnRight();
-    delay(2000);
+    delay(1000);
     goForward();
     delay(2000);
     stop();
-    delay(20000)
+    delay(20000);
 }
