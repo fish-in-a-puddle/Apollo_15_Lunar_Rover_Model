@@ -92,8 +92,25 @@ void loop() {
     distance = duration * 0.034 / 2;
     if (distance <= 30) {
         stop();
-        delay(100);
-        turnRightBackwards();
+        obstacleRight = (digitalRead(irr));
+        if (obstacleRight == HIGH) {
+            obstacleLeft = (digitalRead(irl));
+            if (obstacleLeft == HIGH) {
+                while (obstacleLeft == HIGH) {
+                    goBackward();
+                }
+                goBackward();
+                delay(200);
+                turnRightBackwards();
+                delay(700);
+                goForward();
+                
+            }
+            turnLeftBackwards();
+        }
+        else {
+            turnRightBackwards();
+        }
     }
     else {
         goForward()
