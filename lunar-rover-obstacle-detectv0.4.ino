@@ -6,19 +6,17 @@ const int motorrn = 10;
 const int motorlp = 13;
 const int motorln = 12;
 const int ledr = 7;
-const int ledl = 8;
-const int irfr = 5;
-const int irfm = 6;
-const int irfl = 3;
+const int trigPin2 = 8;
+const int echoPin2 = 3;
+const int trigPin = 5;
+const int echoPin = 6;
 const int irr = 2;
 const int irl = 4;
 long duration;
 int distance;
+int distance2;
 int obstacleRight;
 int obstacleLeft;
-int obstacleFrontRight;
-int obstacleFrontMiddle;
-int obstacleFrontLeft;
 
 Servo sweepServo;
 
@@ -28,12 +26,12 @@ void setup() {
     pinMode(motorlp, OUTPUT);
     pinMode(motorln, OUTPUT);
     pinMode(ledr, OUTPUT);
-    pinMode(ledl, OUTPUT);
+    pinMode(trigPin2, OUTPUT);
+    pinMode(echoPin2, INPUT);
     pinMode(irr, INPUT);
     pinMode(irl, INPUT);
-    pinMode(irfr, INPUT);
-    pinMode(irfm, INPUT);
-    pinMode(irfl, INPUT);
+    pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
     sweepServo.attach(9);
     sweepServo.write(90);
 }
@@ -88,10 +86,21 @@ void stop() {
 }
 
 void loop() {
-    obstacleFrontRight = (digitalRead(irfr));
-    obstacleFrontMiddle = (digitalRead(irfm));
-    obstacleFrontLeft = (digitalRead(irfl));
-    if (obstacleFrontRight == HIGH || obstacleFrontMiddle == HIGH || obstacleFrontLeft == HIGH) {
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+    duration = pulseIn(echoPin, HIGH);
+    distance = duration * 0.034 / 2;
+    digitalWrite(trigPin2, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigPin2, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin2, LOW);
+    duration = pulseIn(echoPin2, HIGH);
+    distance2 = duration * 0.034 / 2;
+    if (distance <= 30 || distance2 <= 30) {
         stop();
         obstacleRight = (digitalRead(irr));
         if (obstacleRight == HIGH) {
