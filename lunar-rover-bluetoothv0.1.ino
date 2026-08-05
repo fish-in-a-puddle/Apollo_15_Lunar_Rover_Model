@@ -1,5 +1,6 @@
 // Necessary libraries: Servo
 #include <Servo.h>
+#include <Serial.h>
 
 const int motorrp = 11;
 const int motorrn = 10;
@@ -12,15 +13,19 @@ const int trigPin = 5;
 const int echoPin = 6;
 const int irr = 2;
 const int irl = 4;
+const int lightDetect = A0;
+int lightLevel;
 long duration;
 int distance;
 int distance2;
 int obstacleRight;
 int obstacleLeft;
+int servoOn = TRUE;
 
 Servo sweepServo;
 
 void setup() {
+    Serial.begin(9600);
     pinMode(motorrp, OUTPUT);
     pinMode(motorrn, OUTPUT);
     pinMode(motorlp, OUTPUT);
@@ -93,12 +98,6 @@ void servoMotion() {
 }
 
 void loop() {
-    goForward();
-    delay(2000);
-    turnRight();
-    delay(1000);
-    goForward();
-    delay(2000);
-    stop();
-    delay(20000);
+    lightLevel = map(analogRead(lightDetect), 0, 1023, 1, 100);
+
 }

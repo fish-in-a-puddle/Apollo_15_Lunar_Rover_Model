@@ -16,4 +16,4 @@
 - [ ] Update README with instructions for building frame, wiring, flashing code
 - [ ] Make wiring simulation
 - [ ] Sort files into folders
-- [ ] Include insuctions for app
+- [ ] Include instructions for app
