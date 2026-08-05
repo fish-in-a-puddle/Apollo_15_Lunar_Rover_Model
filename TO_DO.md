@@ -1,7 +1,19 @@
 # Hardware:
 - [x] Put together cardboard frame
 - [x] Run test sketch
-- [ ] Test 5v converter
+- [x] Test 5v converter
+- [ ] Add servo, photoresistor and LEDs
+- [ ] Model frame
+- [ ] Find better wheels
 
 # Software:
 - [x] Write test sketch
+- [ ] Write sketch for bluetooth 
+- [ ] Make initial app
+- [ ] Make first draft of final sketch integrating bluetooth and obstacle detection
+
+# Shipping prep:
+- [ ] Update README with instructions for building frame, wiring, flashing code
+- [ ] Make wiring simulation
+- [ ] Sort files into folders
+- [ ] Include insuctions for app
