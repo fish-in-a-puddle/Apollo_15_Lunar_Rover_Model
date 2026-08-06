@@ -12,6 +12,7 @@ const int trigPin = 5;
 const int echoPin = 6;
 const int irr = 2;
 const int irl = 4;
+int servoOn = TRUE;
 long duration;
 int distance;
 int distance2;
@@ -86,10 +87,8 @@ void stop() {
 }
 
 void servoMotion() {
-    if (servoOn == TRUE) {
     sweepServo.write(random(0, 180));
     delay(random(50, 500));
-    }
 }
 
 void loop() {
