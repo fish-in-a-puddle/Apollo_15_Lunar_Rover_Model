@@ -8,7 +8,7 @@
 
 # Software:
 - [x] Write test sketch
-- [ ] Write sketch for bluetooth 
+- [x] Write sketch for bluetooth 
 - [ ] Make initial app
 - [ ] Make first draft of final sketch integrating bluetooth and obstacle detection
 

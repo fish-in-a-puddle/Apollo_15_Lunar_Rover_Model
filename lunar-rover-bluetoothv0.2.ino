@@ -1,6 +1,5 @@
 // Necessary libraries: Servo
 #include <Servo.h>
-#include <Serial.h>
 
 const int motorrp = 11;
 const int motorrn = 10;
@@ -22,7 +21,7 @@ int obstacleRight;
 int obstacleLeft;
 int autoDrive = 0; 
 int autoLights;
-int btIn
+int btIn;
 
 Servo sweepServo;
 
@@ -100,54 +99,53 @@ void servoMotion() {
 void loop() {
     if (Serial.available() > 0) {
         btIn = Serial.read();
+        Serial.println(btIn);
         switch (btIn) {
-            case 100:
+            case 119:
+            Serial.println("go forward");
             goForward();
             break;
-            case 110:
+            case 100:
+            Serial.println("turn right");
             turnRight();
             break;
-            case 120:
+            case 97:
+            Serial.println("turn left");
             turnLeft();
             break;
-            case 200:
+            case 115:
+            Serial.println("go backwards");
             goBackward();
             break;
-            case 210;
+            case 99:
+            Serial.println("turn right backwards");
             turnRightBackwards();
             break;
-            case 220:
+            case 122:
+            Serial.println("turn left backwards");
             turnLeftBackwards();
             break;
-            case 999:
+            case 120:
+            Serial.println("stop");
             stop();
             break;
-            case 300:
-            autoDrive = 1;
-            break;
-            case 310:
-            autoDrive = 0;
-            break;
-            case 400:
-            autoLights = 0;
-            digitalWrite(led, HIGH);
-            break;
-            case 410:
-            autoLights = 0;
-            digitalWrite(led, LOW);
-            break;
-            case 420:
-            autoLights = 1;
-        }
-    }
-    if (autoLights == 1) {
-        lightLevel = map(analogRead(lightDetect), 0, 1023, 1, 100);
-        if (lightLevel =< 50) {
-            digitalWrite(led, HIGH);
-        }
-        else {
-            digitalWrite(led, LOW);
-        }   
+            //case 300:
+            //autoDrive = 1;
+            //break;
+            //case 310:
+            //autoDrive = 0;
+            //break;
+            //case 400:
+            //autoLights = 1;
+            //digitalWrite(led, HIGH);
+            //break;
+            //case 410:
+            //autoLights = 0;
+            //digitalWrite(led, LOW);
+           // break;
+            //case 420:
+            //autoLights = 1;
+       }
     }
     
 
