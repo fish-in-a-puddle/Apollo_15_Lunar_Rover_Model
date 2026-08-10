@@ -129,22 +129,28 @@ void loop() {
             Serial.println("stop");
             stop();
             break;
-            //case 300:
-            //autoDrive = 1;
-            //break;
-            //case 310:
-            //autoDrive = 0;
-            //break;
-            //case 400:
-            //autoLights = 1;
-            //digitalWrite(led, HIGH);
-            //break;
-            //case 410:
-            //autoLights = 0;
-            //digitalWrite(led, LOW);
-           // break;
-            //case 420:
-            //autoLights = 1;
+            case 114:
+            Serial.println("auto drive on");
+            autoDrive = 1;
+            break;
+            case 101:
+            Serial.println("auto drive off");
+            autoDrive = 0;
+            break;
+            case 102:
+            Serial.println("lights on");
+            autoLights = 0;
+            digitalWrite(led, HIGH);
+            break;
+            case 103:
+            Serial.println("lights off");
+            autoLights = 0;
+            digitalWrite(led, LOW);
+            break;
+            case 104:
+            Serial.println("auto lights active");
+            autoLights = 1;
+            break;
        }
     }
     

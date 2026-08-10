@@ -11,6 +11,8 @@
 - [x] Write sketch for bluetooth 
 - [ ] Make initial app
 - [ ] Make first draft of final sketch integrating bluetooth and obstacle detection
+- [x] Define the rest of the bluetooth recv values
+- [ ] Combine obstacle detection and bluetooth control
 
 # Shipping prep:
 - [ ] Update README with instructions for building frame, wiring, flashing code
