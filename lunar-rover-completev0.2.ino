@@ -1,6 +1,7 @@
-// Necessary libraries: Servo
+// The current Servo library is required for this program
 #include <Servo.h>
 
+// Establish pins and variables
 const int motorrp = 11;
 const int motorrn = 10;
 const int motorlp = 13;
@@ -27,7 +28,9 @@ int ran;
 Servo sweepServo;
 
 void setup() {
+    // Begin serial communication with the bluetooth module
     Serial.begin(9600);
+    // Set pin modes and attach servo
     pinMode(motorrp, OUTPUT);
     pinMode(motorrn, OUTPUT);
     pinMode(motorlp, OUTPUT);
@@ -43,6 +46,7 @@ void setup() {
     sweepServo.write(90);
 }
 
+// Establish functions for the rover's movement
 void goForward() {
     digitalWrite(motorrp, HIGH);
     digitalWrite(motorrn, LOW);
@@ -93,14 +97,16 @@ void stop() {
 }
 
 void servoMotion() {
-    sweepServo.write(random(0, 180));
+    sweepServo.write(random(20, 160));
     delay(random(50, 100));
 }
 
 void loop() {
+    // Check if a bluetooth message has been received
     if (Serial.available() > 0) {
         btIn = Serial.read();
         Serial.println(btIn);
+        // Decide what to do with the command
         switch (btIn) {
             case 119:
             Serial.println("go forward");
@@ -154,41 +160,46 @@ void loop() {
             break;
        }
     }
+    // Check if auto drive is enabled
     if (autoDrive == 1) {
-            digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
-    duration = pulseIn(echoPin, HIGH);
-    distance = duration * 0.034 / 2;
-    digitalWrite(trigPin2, LOW);
-    delayMicroseconds(2);
-    digitalWrite(trigPin2, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin2, LOW);
-    duration = pulseIn(echoPin2, HIGH);
-    distance2 = duration * 0.034 / 2;
-    if (distance <= 30 || distance2 <= 30) {
-        stop();
-        obstacleRight = (digitalRead(irr));
-        if (obstacleRight == HIGH) {
-            obstacleLeft = (digitalRead(irl));
-            if (obstacleLeft == HIGH) {
-                stop();
+        // Run ulrasonic sensors to check if there is anything in front of the rover
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
+        duration = pulseIn(echoPin, HIGH);
+        distance = duration * 0.034 / 2;
+        digitalWrite(trigPin2, LOW);
+        delayMicroseconds(2);
+        digitalWrite(trigPin2, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin2, LOW);
+        duration = pulseIn(echoPin2, HIGH);
+        distance2 = duration * 0.034 / 2;
+        // If there is something in front of the rover, check if there is anything on each side and decide which way to turn to back out
+        if (distance <= 30 || distance2 <= 30) {
+            stop();
+            obstacleRight = (digitalRead(irr));
+            if (obstacleRight == HIGH) {
+                obstacleLeft = (digitalRead(irl));
+                if (obstacleLeft == HIGH) {
+                    stop();
+                }
+                turnLeftBackwards();
             }
-            turnLeftBackwards();
+            else {
+                turnRightBackwards();
+            }
         }
         else {
-            turnRightBackwards();
+            goForward();
         }
+        delay(200);
     }
-    else {
-        goForward();
-    }
-    delay(200);
-    }
+    // Check if auto lights are enabled
     if (autoLights == 1) {
+        // Check the light levels and decide whether or not to turn on lights
         lightLevel = map(analogRead(lightDetect), 0, 1023, 1, 100);
         if (lightLevel << 51) {
             digitalWrite(led, HIGH);
@@ -197,11 +208,9 @@ void loop() {
             digitalWrite(led, LOW);
         }
     }
-    ran = random(1, 4);
-    if (ran == 3){
+    // Generate a random number to decide if the servo will move
+    ran = random(1, 5000);
+    if (ran == 3) {
         servoMotion();
     }
-
-    
-
 }
