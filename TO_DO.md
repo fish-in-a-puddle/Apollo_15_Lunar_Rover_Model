@@ -2,7 +2,7 @@
 - [x] Put together cardboard frame
 - [x] Run test sketch
 - [x] Test 5v converter
-- [ ] Add servo, photoresistor and LEDs
+- [x] Add servo, photoresistor and LEDs
 - [ ] Model frame
 - [ ] Find better wheels
 
