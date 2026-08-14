@@ -4,7 +4,7 @@
 - [x] Test 5v converter
 - [x] Add servo, photoresistor and LEDs
 - [ ] Model frame
-- [ ] Find better wheels
+- [x] Find better wheels
 
 # Software:
 - [x] Write test sketch
@@ -14,7 +14,7 @@
 - [x] Define the rest of the bluetooth recv valuesl
 
 # Shipping prep:
-- [ ] Update README with instructions for building frame, wiring, flashing code
+- [x] Update README with instructions for building frame, wiring, flashing code
 - [ ] Make wiring simulation
-- [ ] Sort files into folders
-- [ ] Include instructions for app
+- [x] Sort files into folders
+- [x] Include instructions for app
