@@ -1,6 +1,7 @@
 # Apollo 15 Lunar Rover Model v0
 A Bluetooth-controlled model of the Apollo 15 lunar rover using an Arduino Nano and an HC-05 Bluetooth module.
 
+![Image of Lunar Rover Model V0](Images/rover-right-front.jpg)
 
 #### Check out the project on Stardance! https://stardance.hackclub.com/projects/1942
 
@@ -46,6 +47,12 @@ Lights on = f
 Lights off = g
 
 Lights auto = h
+
+Your configuration will probably look something like this:
+
+![Screenshot of app layout](Images/app-layout.png)
+<img width="1534" height="1143" alt="AS15-85-11471" src="https://github.com/user-attachments/assets/0b2765d5-6ba3-4b8b-8559-54c67cd2f7a8" />
+<img width="1534" height="1143" alt="AS15-85-11471" src="https://github.com/user-attachments/assets/bc4dd70b-258a-421b-b524-63d22704d666" />
 
 After configuring the buttons in the app, you will be able to control the rover with your mobile device. If you use an iOs device, you may have to do some troubleshooting to find an app that works well. I was planning to make a custom app for the rover, but I don't know much about it and I wanted to focus on the rover itself. If anyone would like to make an app for this project, they are welcome to and I would appreciate if they let me know.
 
