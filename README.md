@@ -1,7 +1,10 @@
 # Apollo 15 Lunar Rover Model v0
 A Bluetooth-controlled model of the Apollo 15 lunar rover using an Arduino Nano and an HC-05 Bluetooth module.
 
-![Image of Lunar Rover Model V0](Images/rover-right-front.jpg)
+[![Watch the demo!](Images/rover-right-front.jpg)](https://youtu.be/fayXKmGm4Ek?si=QLX--hcnvoJ-vxXC)
+
+Watch the demo on YouTube [here](https://youtu.be/fayXKmGm4Ek?si=QLX--hcnvoJ-vxXC).
+
 
 #### Check out the project on Stardance! https://stardance.hackclub.com/projects/1942
 
