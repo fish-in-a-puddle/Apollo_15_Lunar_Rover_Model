@@ -15,6 +15,6 @@
 
 # Shipping prep:
 - [x] Update README with instructions for building frame, wiring, flashing code
-- [ ] Make wiring simulation
+- [x] Make wiring simulation
 - [x] Sort files into folders
 - [x] Include instructions for app
