@@ -134,6 +134,7 @@ void loop() {
             break;
             case 120:
             Serial.println("stop");
+            autoDrive = 0;
             stop();
             break;
             case 114:
