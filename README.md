@@ -11,6 +11,8 @@ The Apollo 15 Lunar Rover Model is a robot controlled by Bluetooth designed to l
 
 At the moment, the model doesn't look very similar to the actual roving vehicle. This is because the current version of the robot is a prototype built with cardboard to test the code and capabilities of the sensors. Version 0 is being shipped simply to show the process of creating the eventual version 1, which will feature a 3D printed chassis, an improved control app, and will resemble the actual rover much more. The rover is not very sturdy and is intended to be used as an educational tool or to be driven inside.
 
+## Inspiration 
+After watching NASA's contract award livestream and seeing some cool designs for future lunar rovers, I was inspired to make a robot modeled after the Apollo 15 Lunar Roving Vehicle. While the current version admittedly looks nothing like the actual rover, I am working on designing a 3d-printable chassis and accessories to pay tribute to the only lunar rover used during the Apollo missions.
 
 ## Getting started
 To get started with the current version of the Lunar Rover Model, you will first need to build the cardboard chassis. For instructions on building and wiring the rover, check out [this guide](Construction/building_the_chassis.md).
@@ -19,8 +21,33 @@ To get started with the current version of the Lunar Rover Model, you will first
 Once the chassis is built and the components are wired, it is time to flash the firmware to the Arduino. If you want your rover to simply drive itself around with no help from a driver, copy the code from lunar-rover-obstacle-detectv0.4.ino and paste it in the Arduino IDE. You can also download the file, place it in a folder named [lunar-rover-obstacle-detectv0.4](Firmware/lunar-rover-obstacle-detectv0.4.ino) and open it in the IDE. If you want the rover to be able to be driven or to be set to self-navigation, copy the code from [lunar-rover-completev0.2.ino](Firmware/lunar-rover-completev0.2.ino) and paste it in the Arduino IDE. Before flashing the code to the Arduino, you MUST disconnect the Bluetooth module from the Arduino. This is because if you don't, the Arduino will prioritize its serial communication with the Bluetooth module over the USB connection and you will get an error message.
 
 
-To control the rover with Bluetooth, you will have to install the app on your mobile device. For Android, download and install the .apk file  in the "Control App" folder. If you have an Apple device, download and install the .ipa file.
+To control the rover with Bluetooth, you will have to install a controller app on your device. I have used this one with great results: https://play.google.com/store/apps/details?id=com.tools.ArduinoBluetooth on Android. You will also need to make the buttons in the app send the correct code to the Arduino. The serial codes are as follows:
 
+Forward = w
+
+Backwards = s
+
+Left = a
+
+Right = d
+
+Left backwards = z
+
+Right backwards = c
+
+Stop = x
+
+Auto drive on = r
+
+Auto drive off = e
+
+Lights on = f
+
+Lights off = g
+
+Lights auto = h
+
+After configuring the buttons in the app, you will be able to control the rover with your mobile device. If you use an iOs device, you may have to do some troubleshooting to find an app that works well. I was planning to make a custom app for the rover, but I don't know much about it and I wanted to focus on the rover itself. If anyone would like to make an app for this project, they are welcome to and I would appreciate if they let me know.
 
 ## Troubleshooting
 
