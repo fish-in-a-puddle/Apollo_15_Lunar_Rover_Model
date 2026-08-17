@@ -15,6 +15,8 @@ At the moment, the model doesn't look very similar to the actual roving vehicle.
 ## Inspiration 
 After watching NASA's contract award livestream and seeing some cool designs for future lunar rovers, I was inspired to make a robot modeled after the Apollo 15 Lunar Roving Vehicle. While the current version admittedly looks nothing like the actual rover, I am working on designing a 3d-printable chassis and accessories to pay tribute to the only lunar rover used during the Apollo missions.
 
+<img width="1534" height="1143" alt="The actual lunar roving vehicle" src="https://github.com/user-attachments/assets/0b2765d5-6ba3-4b8b-8559-54c67cd2f7a8" />
+
 ## Getting started
 To get started with the current version of the Lunar Rover Model, you will first need to build the cardboard chassis. For instructions on building and wiring the rover, check out [this guide](Construction/building_the_chassis.md).
 
@@ -51,8 +53,6 @@ Lights auto = h
 Your configuration will probably look something like this:
 
 ![Screenshot of app layout](Images/app-layout.png)
-<img width="1534" height="1143" alt="AS15-85-11471" src="https://github.com/user-attachments/assets/0b2765d5-6ba3-4b8b-8559-54c67cd2f7a8" />
-<img width="1534" height="1143" alt="AS15-85-11471" src="https://github.com/user-attachments/assets/bc4dd70b-258a-421b-b524-63d22704d666" />
 
 After configuring the buttons in the app, you will be able to control the rover with your mobile device. If you use an iOs device, you may have to do some troubleshooting to find an app that works well. I was planning to make a custom app for the rover, but I don't know much about it and I wanted to focus on the rover itself. If anyone would like to make an app for this project, they are welcome to and I would appreciate if they let me know.
 
